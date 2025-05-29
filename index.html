@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untouchable Computer Service - Your One-Stop Tech Solution</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #FF6B35, #F7931E);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #FF6B35, #F7931E);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0); }
+            100% { transform: translateY(-100px) translateX(100px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: slideInUp 1s ease;
+        }
+
+        .hero .motto {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+            animation: slideInUp 1s ease 0.2s both;
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            animation: slideInUp 1s ease 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideInUp 1s ease 0.6s both;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #FF6B35;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 5px solid #FF6B35;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: #FF6B35;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .service-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .service-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .service-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #FF6B35;
+            font-weight: bold;
+        }
+
+        /* Packages Section */
+        .packages {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .package-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s;
+        }
+
+        .package-card:hover {
+            transform: scale(1.05);
+        }
+
+        .package-card.featured {
+            background: linear-gradient(135deg, #FF6B35, #F7931E);
+            transform: scale(1.1);
+        }
+
+        .package-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .package-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            color: #FFD700;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .package-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #FF6B35;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: #FF6B35;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: white;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #FF6B35;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #FF6B35;
+        }
+
+        .footer-section p,
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #FF6B35;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 1rem;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .motto {
+                font-size: 1.2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .package-card.featured {
+                transform: none;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <div style="width: 40px; height: 40px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+                    <span style="color: #FF6B35; font-weight: bold; font-size: 1.2rem;">UCS</span>
+                </div>
+                Untouchable Computer Service
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#packages">Packages</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Untouchable Computer Service</h1>
+                <p class="motto">"Pleasure in the Job Puts Perfection in the Work"</p>
+                <p class="tagline">Your One-Stop Solution for IT Services, Architectural Design, and Digital Marketing</p>
+                <div class="cta-buttons">
+                    <a href="#services" class="btn btn-primary">Explore Services</a>
+                    <a href="#contact" class="btn btn-secondary">Get Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">💻</div>
+                    <h3>Computer & Mobile Services</h3>
+                    <p>Complete computer and mobile device repair and maintenance services.</p>
+                    <ul class="service-list">
+                        <li>Computer & Mobile Repairs</li>
+                        <li>Network Configuration & Security</li>
+                        <li>Data Management and Security</li>
+                        <li>Cloud-Based Services</li>
+                        <li>Remote Support</li>
+                        <li>Devices & Parts Procurement</li>
+                        <li>Tech Consulting & Support</li>
+                    </ul>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">🏗️</div>
+                    <h3>Architectural Services</h3>
+                    <p>Professional architectural design and construction services.</p>
+                    <ul class="service-list">
+                        <li>House Plans & Floor Plans</li>
+                        <li>3D Exterior & Interior Modeling</li>
+                        <li>Material Lists & Estimates</li>
+                        <li>Landscape Design</li>
+                        <li>Electrical & Plumbing Plans</li>
+                        <li>Construction Services</li>
+                        <li>Project Management</li>
+                    </ul>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">📱</div>
+                    <h3>Digital Marketing Services</h3>
+                    <p>Comprehensive digital marketing and web development solutions.</p>
+                    <ul class="service-list">
+                        <li>Web Development & Management</li>
+                        <li>Graphic Design & Branding</li>
+                        <li>Video & Audio Editing</li>
+                        <li>Social Media Marketing</li>
+                        <li>Google Ads & Facebook Ads</li>
+                        <li>SEO Services</li>
+                        <li>Research & Documentation</li>
+                        <li>Printing & Laminating</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="packages">
+        <div class="container">
+            <h2 class="section-title fade-in">Service Packages</h2>
+            <div class="packages-grid">
+                <div class="package-card fade-in">
+                    <h3 class="package-title">Basic Package</h3>
+                    <div class="package-price">
+                        PC: $3,000<br>
+                        <small style="font-size: 1rem;">Mobile: $1,000</small>
+                    </div>
+                    <ul class="package-features">
+                        <li>Virus & Malware Removal</li>
+                        <li>System Tune Up</li>
+                        <li>System Clean Up</li>
+                        <li>Hardware Cleaning (Every 6 months)</li>
+                        <li>Mobile/Email Support</li>
+                    </ul>
+                    <p><em>Monthly per device. Additional work charged separately.</em></p>
+                </div>
+
+                <div class="package-card featured fade-in">
+                    <h3 class="package-title">Standard Package</h3>
+                    <div class="package-price">
+                        PC: $5,000<br>
+                        <small style="font-size: 1rem;">Mobile: $3,000</small>
+                    </div>
+                    <ul class="package-features">
+                        <li>Everything in Basic</li>
+                        <li>OS, Apps, Software Updates</li>
+                        <li>Data Backup (up to 100GB)</li>
+                        <li>Software/Apps Installation</li>
+                        <li>Fix Common Problems</li>
+                        <li>Windows Error Monitoring</li>
+                        <li>50% off additional work</li>
+                    </ul>
+                    <p><em>Most Popular Choice!</em></p>
+                </div>
+
+                <div class="package-card fade-in">
+                    <h3 class="package-title">Premium Package</h3>
+                    <div class="package-price">$10,000</div>
+                    <ul class="package-features">
+                        <li>Everything in Standard</li>
+                        <li>Repairs & Installations</li>
+                        <li>Data Backup (up to 1TB)</li>
+                        <li>Data Recovery</li>
+                        <li>Home Internet Management</li>
+                        <li>Full PC Configuration</li>
+                        <li>I/O Setup & Troubleshoot</li>
+                        <li>On-Site Checkup</li>
+                    </ul>
+                    <p><em>Monthly per customer. Complete solution!</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h2>Who We Are</h2>
+                    <p>Untouchable Computer Service began as an idea in 2012, conceived by our CEO, Roydel D. Joseph. What started as a one-man operation in 2013 has since grown into a trusted business serving both the local community and beyond.</p>
+                    <p>In June 2014, we formalized our commitment to excellence by registering with the Guyana High Court Registrar. Our mission is simple: to deliver exceptional service on time, every time.</p>
+                    <p>With extensive experience in IT services, architectural design, web development, multimedia editing, digital marketing, and more, we offer a one-stop solution for all your technological and creative needs.</p>
+                </div>
+                <div class="stats fade-in">
+                    <div class="stat-item">
+                        <div class="stat-number">12+</div>
+                        <div>Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1000+</div>
+                        <div>Happy Clients</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div>Support Available</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div>Satisfaction Rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <strong>Locations:</strong><br>
+                            74 Princess Street, Lodge, Georgetown<br>
+                            1199 Covent Garden, East Bank Demerara
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <strong>Phone:</strong><br>
+                            592-614-1973
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <strong>Email:</strong><br>
+                            ucsguyana@gmail.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div>
+                            <strong>Hours:</strong><br>
+                            Monday - Saturday: 08:00 - 17:00<br>
+                            Sunday: Closed
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form fade-in">
+                    <h3>Send Us a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" name="service" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px;">
+                                <option value="">Select a service</option>
+                                <option value="computer">Computer Services</option>
+                                <option value="architectural">Architectural Services</option>
+                                <option value="digital">Digital Marketing</option>
+                                <option value="packages">Service Packages</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Untouchable Computer Service</h3>
+                    <p>Your trusted partner for IT services, architectural design, and digital marketing solutions in Guyana.</p>
+                    <p><em>"Pleasure in the Job Puts Perfection in the Work"</em></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#packages">Packages</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li>Computer Repair</li>
+                        <li>Network Security</li>
+                        <li>Web Development</li>
+                        <li>Architectural Design</li>
+                        <li>Digital Marketing</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>📞 592-614-1973</p>
+                    <p>✉️ ucsguyana@gmail.com</p>
+                    <p>📍 Georgetown & East Bank Demerara</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Untouchable Computer Service. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Contact form handling
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Mobile menu toggle (basic implementation)
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>
